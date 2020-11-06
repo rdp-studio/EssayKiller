@@ -62,6 +62,13 @@ parser.add_argument(
     help='checkpoint file for the model',
 )
 parser.add_argument(
+    '-text',
+    dest='text',
+    default='世上许多重要的转折是在意想不到时发生的，这是否意味着人对事物发展进程无能为力？请写一篇文章，谈谈你对这个问题的认识和思考。',
+    type=str,
+    help='timu',
+)
+parser.add_argument(
     '-target',
     dest='target',
     default='article',
@@ -178,11 +185,11 @@ with tf.compat.v1.Session(config=tf_config, graph=tf.Graph()) as sess:
     saver = tf.compat.v1.train.Saver()
     saver.restore(sess, args.ckpt_fn)
     print('模型加载好啦！🍺Bilibili干杯🍺 \n')
-    print('现在将你的作文题精简为一个句子，粘贴到这里:⬇️，然后回车')
+    # print('现在将你的作文题精简为一个句子，粘贴到这里:⬇️，然后回车')
     print("\n")
     print("**********************************************作文题目**********************************************\n")
-    text = input()
-    print("\n")
+    text = args.text
+    print(str(text) + "\n")
     print("**********************************************作文题目**********************************************\n")
     while text != "":
         for i in range(args.samples):
