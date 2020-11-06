@@ -184,7 +184,7 @@ with tf.compat.v1.Session(config=tf_config, graph=tf.Graph()) as sess:
 
     saver = tf.compat.v1.train.Saver()
     saver.restore(sess, args.ckpt_fn)
-    print('模型加载好啦！🍺Bilibili干杯🍺 \n')
+    print('模型加载好啦！\n')
     # print('现在将你的作文题精简为一个句子，粘贴到这里:⬇️，然后回车')
     print("\n")
     print("**********************************************作文题目**********************************************\n")
@@ -219,15 +219,9 @@ with tf.compat.v1.Session(config=tf_config, graph=tf.Graph()) as sess:
                     gens.append(extraction['extraction'])
 
             l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
-            # print("EssayKiller正在飞速排版中，请稍后......\n")
+            print("EssayKiller正在飞速排版中，请稍后......\n")
             final_output = coarse_formatter("".join(l))
             immediate_print('排版结束，正在输出......\n', final_output)
             print("\n")
             print("把👆复制到Word或其他编辑器中即可转为标准作文排版\n")
             
-        print('对作文不满意？想尝试更多题目？ 你可以继续在这里输入:⬇️')
-        print("**********************************************作文题目**********************************************\n")
-        text = input()
-        print("\n")
-        print("**********************************************作文题目**********************************************\n")
-   
