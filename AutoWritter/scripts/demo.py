@@ -188,7 +188,7 @@ with tf.compat.v1.Session(config=tf_config, graph=tf.Graph()) as sess:
         for i in range(args.samples):
             print("正在生成第,", i + 1, " of ", args.samples , "篇文章\n")
             print("......\n")
-            print("EssayKilelr正在飞速写作中，请稍后......\n")
+            print("EssayKiller正在飞速写作中，请稍后......\n")
 
             line = convert_to_unicode(text)
             bert_tokens = tokenizer.tokenize(line)
@@ -212,7 +212,7 @@ with tf.compat.v1.Session(config=tf_config, graph=tf.Graph()) as sess:
                     gens.append(extraction['extraction'])
 
             l = re.findall('.{1,70}', gens[0].replace('[UNK]', '').replace('##', ''))
-            # print("EssayKilelr正在飞速排版中，请稍后......\n")
+            # print("EssayKiller正在飞速排版中，请稍后......\n")
             final_output = coarse_formatter("".join(l))
             immediate_print('排版结束，正在输出......\n', final_output)
             print("\n")
