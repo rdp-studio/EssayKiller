@@ -64,7 +64,7 @@ parser.add_argument(
 parser.add_argument(
     '-text',
     dest='text',
-    default='世上许多重要的转折是在意想不到时发生的，这是否意味着人对事物发展进程无能为力？请写一篇文章，谈谈你对这个问题的认识和思考。',
+    default='世上许多重要的转折是在意想不到时发生的，这是否意味着人对事物发展进程无能为力？',
     type=str,
     help='timu',
 )
