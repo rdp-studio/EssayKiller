@@ -9,10 +9,10 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow.compat.v1 as tf
 import numpy as np
 tf.logging.set_verbosity(tf.logging.ERROR)
-tf.get_logger().setLevel('INFO')
+tf.get_logger().setLevel('ERROR')
 tf.autograph.set_verbosity(1)
 import logging
-logging.getLogger("tensorflow").setLevel(logging.WARNING)
+logging.getLogger("tensorflow").setLevel(logging.ERROR)
 from modeling import GroverModel, GroverConfig, sample
 from tokenization import *
 from formatter import coarse_formatter, immediate_print
